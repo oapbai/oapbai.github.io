@@ -1,0 +1,43 @@
+<header class="navbar" role="banner">
+  <div class="navbar-inner">
+    <!-- Brand -->
+    <a href="{{ '/' | relative_url }}" class="navbar-brand" aria-label="Oxbridge AI Club - Home">
+      <div class="navbar-logo" aria-hidden="true">
+        <img src="{{ '/assets/images/Oxbridge_Academy_Foundation_logo.png' | relative_url }}" alt="Oxbridge Academy" style="width: 64px; height: 64px;">
+      </div>
+      <span class="navbar-title">Oxbridge AI Club</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="navbar-nav" aria-label="Main navigation">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#activities" class="nav-link">Activities</a>
+      <a href="#team" class="nav-link">Team</a>
+      <a href="#join" class="nav-link nav-link-cta">Join Us</a>
+    </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button
+      class="navbar-toggle"
+      aria-expanded="false"
+      aria-controls="navbar-menu"
+      aria-label="Toggle navigation menu"
+      type="button"
+    >
+      <span class="hamburger-line" aria-hidden="true"></span>
+      <span class="hamburger-line" aria-hidden="true"></span>
+      <span class="hamburger-line" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Panel -->
+  <div class="navbar-menu-overlay" aria-hidden="true"></div>
+  <nav class="navbar-menu" id="navbar-menu" role="navigation" aria-label="Mobile navigation">
+    <div class="navbar-menu-nav">
+      <a href="#about" class="navbar-menu-link">About</a>
+      <a href="#activities" class="navbar-menu-link">Activities</a>
+      <a href="#team" class="navbar-menu-link">Leadership</a>
+      <a href="#join" class="navbar-menu-link navbar-menu-cta btn btn-primary">Join Us</a>
+    </div>
+  </nav>
+</header>

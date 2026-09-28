@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- Using inspect element doesn't make you a hacker, you know. There isn't much to see here. If you want to view the site's source code, you can find it at https://github.com/oapbai/oapbai.github.io -->
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Jekyll v{{ jekyll.version }}">
+
+  {% if page.title %}
+    <title>{{ page.title }} | {{ site.title }}</title>
+  {% else %}
+    <title>{{ site.title }}</title>
+  {% endif %}
+
+  {% if page.description %}
+    <meta name="description" content="{{ page.description | strip_html | strip_newlines | truncate: 160 }}">
+  {% elsif site.description %}
+    <meta name="description" content="{{ site.description }}">
+  {% endif %}
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ site.url }}{{ page.url | relative_url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url | relative_url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  {% if page.image %}
+    <meta property="og:image" content="{{ site.url }}{{ page.image | relative_url }}">
+  {% endif %}
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}">
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts - Merriweather for serif (matches oapb.org Cambria/Georgia style), Inter for sans -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  {% seo %}
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "description": "{{ site.description }}",
+    "url": "{{ site.url }}",
+    "logo": "{{ site.url }}/assets/images/logo.svg",
+    "sameAs": [
+      "https://github.com/oapbai"
+    ],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "President",
+        "name": "David Blackett",
+        "email": "46049@oapb.org"
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "Vice President",
+        "name": "Alden Markowski",
+        "email": "46030@oapb.org"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Theme color for mobile browsers -->
+  <meta name="theme-color" content="{{ site.club.colors.primary }}">
+  <meta name="msapplication-TileColor" content="{{ site.club.colors.primary }}">
+
+  <!-- Prefetch critical pages -->
+  <link rel="prefetch" href="{{ '/about/' | relative_url }}">
+  <link rel="prefetch" href="{{ '/join/' | relative_url }}">
+
+  <!-- Custom page styles -->
+  {% if page.styles %}
+    {% for style in page.styles %}
+      <link rel="stylesheet" href="{{ style | relative_url }}">
+    {% endfor %}
+  {% endif %}
+</head>
+<body class="page">
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  {% if site.announcement %}
+    <input type="checkbox" id="announcement-dismiss" class="announcement-toggle" aria-hidden="true">
+    <div class="announcement-bar" role="status" aria-live="polite">
+      <div class="announcement-content">
+        {{ site.announcement.text }}
+        {% if site.announcement.link %}
+          <a href="{{ site.announcement.link }}" class="announcement-link">{{ site.announcement.link_text }}</a>
+        {% endif %}
+      </div>
+      <label for="announcement-dismiss" class="announcement-close" aria-label="Dismiss announcement">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </label>
+    </div>
+  {% endif %}
+
+  <!-- Header/Navigation -->
+  {% include header.html %}
+
+  <!-- Main Content -->
+  <main id="main-content" class="main" role="main">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  {% include footer.html %}
+
+  <!-- Back to top button -->
+  <a href="#top" class="back-to-top" aria-label="Back to top" hidden>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"></path>
+    </svg>
+  </a>
+
+  {% if page.scripts %}
+    {% for script in page.scripts %}
+      <script src="{{ script | relative_url }}"></script>
+    {% endfor %}
+  {% endif %}
+</body>
+</html>

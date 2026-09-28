@@ -1,0 +1,66 @@
+title: Oxbridge Academy AI Club
+description: Exploring artificial intelligence at Oxbridge Academy. Student-led innovation, research, and learning.
+url: "https://oapbai.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+feed: false
+
+plugins:
+  - jekyll-sitemap
+
+# Disable jekyll-seo-tag to avoid auto-generated social meta tags
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - README.md
+
+collections:
+  pages:
+    output: true
+    permalink: /:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+club:
+  name: "Oxbridge Academy AI Club"
+  tagline: "Student-led AI innovation at Oxbridge Academy"
+  founded: "2026"
+  school: "Oxbridge Academy"
+  mascot: "Thunderwolves"
+  colors:
+    primary: "#0B1D3A"      # Deep navy
+    secondary: "#1A3C6E"    # Medium navy
+    accent: "#D4A843"       # Gold
+    accent_light: "#F0D9A8" # Light gold
+    dark: "#061020"         # Near black
+    light: "#F8F9FA"        # Off white
+    text: "#1A1A2E"         # Dark text
+    text_light: "#6B7280"   # Muted text
+
+leadership:
+  - name: "David Blackett"
+    role: "President & Founder"
+    email: "46049@oapb.org"
+  - name: "Alden Markowski"
+    role: "Vice President & Co-Founder"
+    email: "46030@oapb.org"
+  - name: "Luca Quartarolo"
+    role: "Secretary"
+    email: "43667@oapb.org"
+  - name: "Franz Lowenberg"
+    role: "Recruitment"
+    email: "46009@oapb.org"
